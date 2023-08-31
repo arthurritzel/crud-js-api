@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="alert alert-success col-3 mt-3 m-auto pt-3 pb-3 text-center" role="alert">
+        <h1>Lista de Tarefas</h1>
+    </div>
+
+    <form action="#" class="col-2 m-auto pt-4 pb-4 text-center">
+            <div class="col">
+              <input id="task" type="text" class="form-control mt-2" placeholder="Tarefa" aria-label="First name">
+            </div>
+            <div class="col">
+            <select  class="form-select mt-2" id="urg">
+                <option value="">Defina o nivel de urgencia</option>
+                <option value="urgente">Urgente</option>
+                <option value="Média urgencia">Média urgencia</option>
+                <option value="pouco urgente">pouco urgente</option>
+                <option value="tranquilo">tranquilo</option>
+            </select>
+            </div>
+        <input class="btn btn-primary mt-2" type="submit" value="cadastrar">
+    </form>
+    <div id="tarefas" class="col-5 m-auto pt-2 pb-4 text-center"></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
