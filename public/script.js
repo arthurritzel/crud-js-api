@@ -94,13 +94,15 @@ async function exibir(){
             var id = event.currentTarget.value
             var txt = document.querySelector("#title" + id)
             var sele = document.querySelector("#situ" + id)
-            
+            var val = txt.innerText
+            var vals = sele.innerText
             var btnatu = document.querySelector(`#btn_atu${id}`)
             btnatu.innerHTML = `<button id="btn_conf" class="btn btn-success">Confirmar</button>`
             var btmdel = document.querySelector(`#btn_del${id}`)
             btmdel.innerHTML = `<button id="btn_can" class="btn btn-danger">Cancelar</button>`
             
            txt.innerHTML = `<input id="newtask" type="text" class="form-control" placeholder="${txt.innerText}" aria-label="First name">`
+           document.querySelector("#newtask").value = val
             sele.innerHTML = `<select  class="form-select" id="newurg">
             <option value="">Defina a urgencia</option>
             <option value="urgente">Urgente</option>
@@ -108,29 +110,32 @@ async function exibir(){
             <option value="pouco urgente">pouco urgente</option>
             <option value="tranquilo">tranquilo</option>
             </select>`
-
+            document.querySelector("#newurg").value = vals
             document.querySelector("#btn_conf").addEventListener("click", () =>{
                 var newtask = document.querySelector("#newtask").value
                 var newurg = document.querySelector("#newurg").value
-                console.log(newtask, newurg)
-                async function atu(){
-                    var atua = await fetch("http://localhost:3000/tasks/" + id, {
-                        method: "PUT",
-                        headers: {
-                            "Content-type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            "id": id,
-                            "title": newtask,
-                            "situacao": newurg
+                if(newtask && newurg){
+                    async function atu(){
+                        var atua = await fetch("http://localhost:3000/tasks/" + id, {
+                            method: "PUT",
+                            headers: {
+                                "Content-type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                "id": id,
+                                "title": newtask,
+                                "situacao": newurg
+                            })
                         })
-                    })
-                    var atuJSON = await atua.json()
-                    
-                }
+                        var atuJSON = await atua.json()
+                        
+                    }
 
-                    atu();
+                        atu();
+                        exibir();
+                }else{
                     exibir();
+                }
             })
             document.querySelector("#btn_can").addEventListener("click", () =>{
                 exibir();
