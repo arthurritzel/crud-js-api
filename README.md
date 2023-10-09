@@ -1,4 +1,4 @@
-# README - CRUD com JSON-Server
+# CRUD com JSON-Server
 
 ![GitHub](https://img.shields.io/github/issues/arthurritzel/crud-js-api)
 ![GitHub](https://img.shields.io/github/forks/arthurritzel/crud-js-api)
